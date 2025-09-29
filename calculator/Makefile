@@ -1,16 +1,12 @@
-CC = gcc
-CFLAGS = -Wall -Wextra -std=c99
+CXX = g++
+CXXFLAGS = -Wall -Wextra -std=c++17
 TARGET = calculator.out
-SRCS = main.c
-OBJS = $(SRCS:.c=.o)
+SRCS = main.cpp
 
-$(TARGET): $(OBJS)
-	$(CC) $(CFLAGS) -o $@ $^
-
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+$(TARGET): $(SRCS)
+	$(CXX) $(CXXFLAGS) -o $@ $<
 
 clean:
-	rm -f $(OBJS) $(TARGET)
+	rm -f $(TARGET)
 
 .PHONY: clean
